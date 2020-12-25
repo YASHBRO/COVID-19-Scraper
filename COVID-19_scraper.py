@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from tabulate import tabulate
+from time import sleep
 
 
 def makeTable(table,headers,tablefmt):
@@ -36,6 +37,17 @@ def statsFind():
             statsFind()
 
 
+print('''
+ _____ _____ _   _ ___________    __   _____         _        _       
+/  __ \  _  | | | |_   _|  _  \  /  | |  _  |       | |      | |      
+| /  \/ | | | | | | | | | | | |  `| | | |_| |    ___| |_ __ _| |_ ___ 
+| |   | | | | | | | | | | | | |   | | \____ |   / __| __/ _` | __/ __|
+| \__/\ \_/ | \_/ /_| |_| |/ /   _| |_.___/ /   \__ \ || (_| | |_\__ \ 
+ \____/\___/ \___/ \___/|___/    \___/\____/    |___/\__\__,_|\__|___/
+ 
+  By: Yash Joglekar''')
+
+
 print("\ngetting info....\n")
 url="https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data"
 header = {'User-Agent': "Chrome/6.0.472.63 Safari/534.3"}
@@ -52,6 +64,8 @@ print('''\n        WORLD COVID-19 stats
        ----------------------\n''')
 print(makeTable(table,[],"plain")+"\n\n")
 
+sleep(2)
+
 print("         Top 10 countries suffering form COVID-19")
 top10=[]
 header= ["Rank", "Country\nName", "Total\nCases", "Total\nDeaths", "Total\nRecovered"]
@@ -64,5 +78,11 @@ for i in range(3,13,1):
 
 print(makeTable(top10,header,"grid"))
 
+sleep(1)
+
 statsFind()
-print("\n\n"+makeTable("Thanks . for . using . my . COVID-19 . scraper".split(),[],"plain"))
+print('''\n
+╔╦╗╦ ╦╔═╗╔╗╔╦╔═  ╦ ╦╔═╗╦ ╦
+ ║ ╠═╣╠═╣║║║╠╩╗  ╚╦╝║ ║║ ║
+ ╩ ╩ ╩╩ ╩╝╚╝╩ ╩   ╩ ╚═╝╚═╝
+''')
